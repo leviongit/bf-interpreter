@@ -15,9 +15,7 @@ void interpret(u8 *code) {
 
   u8 chr;
   while ((chr = tape_u8_get(_code))) {
-    // printf("%c; %d; %d; %d\n", _code->data[_code->pos], _code->pos, tape_u8_get(tape), state->depth);
     while (state->depth) {
-      // printf("%c; %d; %d; %d || while\n", _code->data[_code->pos], _code->pos, tape_u8_get(tape), state->depth);
       if (tape_u8_get(_code) == ']') {
         state->depth--;
       } else if (chr == '[') {
